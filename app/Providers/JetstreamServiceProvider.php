@@ -9,19 +9,19 @@ use App\Actions\Jetstream\DeleteUser;
 use App\Actions\Jetstream\InviteTeamMember;
 use App\Actions\Jetstream\RemoveTeamMember;
 use App\Actions\Jetstream\UpdateTeamName;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Jetstream\Jetstream;
 
-class JetstreamServiceProvider extends ServiceProvider
-{
+class JetstreamServiceProvider extends ServiceProvider {
     /**
      * Register any application services.
      *
      * @return void
      */
-    public function register()
-    {
-        //
+    public function register() {
+        $this->registerComponent('authentication-card-header');
+        $this->registerComponent('authentication-card-option');
     }
 
     /**
@@ -29,8 +29,7 @@ class JetstreamServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
-    {
+    public function boot() {
         $this->configurePermissions();
 
         Jetstream::createTeamsUsing(CreateTeam::class);
@@ -47,8 +46,7 @@ class JetstreamServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function configurePermissions()
-    {
+    protected function configurePermissions() {
         Jetstream::defaultApiTokenPermissions(['read']);
 
         Jetstream::role('admin', 'Administrator', [
@@ -63,5 +61,15 @@ class JetstreamServiceProvider extends ServiceProvider
             'create',
             'update',
         ])->description('Editor users have the ability to read, create, and update.');
+    }
+
+    /**
+     * Register new jetstream component
+     * 
+     * @return void
+     */
+
+    protected function registerComponent(string $component) {
+        Blade::component('jetstream::components.' . $component, 'jet-' . $component);
     }
 }
