@@ -18,11 +18,11 @@ class Product extends Model {
         return $this->belongsToMany(Category::class);
     }
 
-    public function carts() {
-        return $this->hasMany(Cart::class);
+    public function cart() {
+        return $this->belongsTo(Cart::class);
     }
 
-    public function transactionDetails() {
-        return $this->hasMany(TransactionDetail::class);
+    public function transactionDetail() {
+        return $this->belongsTo(TransactionDetail::class);
     }
 }
