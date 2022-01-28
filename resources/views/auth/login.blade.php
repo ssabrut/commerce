@@ -17,7 +17,7 @@
     @endif --}}
 
     {{-- login form --}}
-    <form>
+    <form method="POST" action="{{ route('login') }}">
       @csrf
       {{-- email field --}}
       <div>
