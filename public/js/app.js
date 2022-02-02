@@ -5486,6 +5486,24 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 Window.Vue = vue__WEBPACK_IMPORTED_MODULE_2__["default"];
 window.Alpine = alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"];
 alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"].start();
+$(document).ready(function () {
+  // banner
+  $('.banner-wrapper').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 5000
+  }); // item slider
+
+  $('.item-slider').slick({
+    slidesToShow: 6,
+    slidesToScroll: 6,
+    variableWidth: true,
+    infinite: false,
+    draggable: false,
+    speed: 800
+  });
+});
 
 /***/ }),
 
@@ -5526,11 +5544,11 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
   \********************************************************/
 /***/ ((module, exports, __webpack_require__) => {
 
-var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;!function(e){ true?!(__WEBPACK_AMD_DEFINE_FACTORY__ = (e),
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;!function (e) {  true ? !(__WEBPACK_AMD_DEFINE_FACTORY__ = (e),
 		__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
 		(__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) :
 		__WEBPACK_AMD_DEFINE_FACTORY__),
-		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)):0}((function(){"use strict";if(void 0===window.livewire)throw"Livewire Vue Plugin: window.livewire is undefined. Make sure @livewireScripts is placed above this script include";window.livewire.hook("message.received",(e,i)=>{if(!window.Vue)return;if(!e.response.effects.html)return;const n=document.createElement("div");n.innerHTML=e.response.effects.html,(new window.Vue).$mount(n.firstElementChild),e.response.effects.html=n.firstElementChild.outerHTML}),window.livewire.hook("element.initialized",e=>{e.__vue__&&(e.__livewire_ignore=!0)}),window.livewire.hook("interceptWireModelSetValue",(e,i)=>{if(!i.__vue__)return;const n=window.Vue.config.silent;window.Vue.config.silent=!0,i.__vue__.$props.value=e,window.Vue.config.silent=n}),window.livewire.hook("interceptWireModelAttachListener",(e,i,n,t)=>{if(!e.__vue__)return;const o=i.modifiers.includes("debounce"),r=i.modifiers.includes("lazy");e.__vue__.$on("input",t(o||!r,e=>{const t=i.value,o=e;n.set(t,o)},i.durationOr(150)))})}));
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) : 0 }((function () { "use strict"; if (void 0 === window.livewire) throw "Livewire Vue Plugin: window.livewire is undefined. Make sure @livewireScripts is placed above this script include"; window.livewire.hook("message.received", (e, i) => { if (!window.Vue) return; if (!e.response.effects.html) return; const n = document.createElement("div"); n.innerHTML = e.response.effects.html, (new window.Vue).$mount(n.firstElementChild), e.response.effects.html = n.firstElementChild.outerHTML }), window.livewire.hook("element.initialized", e => { e.__vue__ && (e.__livewire_ignore = !0) }), window.livewire.hook("interceptWireModelSetValue", (e, i) => { if (!i.__vue__) return; const n = window.Vue.config.silent; window.Vue.config.silent = !0, i.__vue__.$props.value = e, window.Vue.config.silent = n }), window.livewire.hook("interceptWireModelAttachListener", (e, i, n, t) => { if (!e.__vue__) return; const o = i.modifiers.includes("debounce"), r = i.modifiers.includes("lazy"); e.__vue__.$on("input", t(o || !r, e => { const t = i.value, o = e; n.set(t, o) }, i.durationOr(150))) }) }));
 //# sourceMappingURL=livewire-vue.js.map
 
 
