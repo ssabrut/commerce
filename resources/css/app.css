@@ -1,3 +1,60 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+@import url('https://fonts.googleapis.com/css2?family=Viga&display=swap');
+body {
+  height: 2000px;
+}
+
+/* banner */
+.banner-2 {
+  background-color: #091539;
+}
+
+.banner-2::before {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 53%;
+  width: 93.7rem;
+  height: 1px;
+  background-color: #fff;
+  z-index: 5;
+}
+
+.banner-2::after {
+  content: '';
+  position: absolute;
+  right: -10%;
+  width: 45%;
+  height: 100%;
+  background-color: #EDBF2D;
+  z-index: 0;
+  transform: skewX(-35deg);
+}
+
+/* item slider */
+.slick-prev {
+  top: 111px;
+  left: -50px;
+}
+
+.slick-next {
+  top: 111px;
+  right: -50px;
+}
+
+.slick-prev::before,
+.slick-next::before {
+  color: blue;
+  font-size: 32px;
+  opacity: .25;
+}
+
+.slick-prev::before {
+  content: '←';
+}
+
+.slick-next::before {
+  content: '→';
+}
