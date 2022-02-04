@@ -10,39 +10,6 @@
         <div class="item">
           @include('components.item-card')
         </div>
-        <div class="item">
-          @include('components.item-card')
-        </div>
-        <div class="item">
-          @include('components.item-card')
-        </div>
-        <div class="item">
-          @include('components.item-card')
-        </div>
-        <div class="item">
-          @include('components.item-card')
-        </div>
-        <div class="item">
-          @include('components.item-card')
-        </div>
-        <div class="item">
-          @include('components.item-card')
-        </div>
-        <div class="item">
-          @include('components.item-card')
-        </div>
-        <div class="item">
-          @include('components.item-card')
-        </div>
-        <div class="item">
-          @include('components.item-card')
-        </div>
-        <div class="item">
-          @include('components.item-card')
-        </div>
-        <div class="item">
-          @include('components.item-card')
-        </div>
       </div>
     </div>
   </div>

@@ -5502,7 +5502,40 @@ $(document).ready(function () {
     infinite: false,
     draggable: false,
     speed: 800
+  }); // product detail
+
+  $('.product-detail-image').slick({
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    infinite: false,
+    draggable: false,
+    variableWidth: true
   });
+
+  var isHover = function isHover(e) {
+    return e.parentElement.querySelector(':hover') === e;
+  };
+
+  var cover = document.querySelector('img.product-cover');
+  var imageCover = cover.src;
+  var images = document.querySelectorAll('.product-detail-image .product-image');
+
+  var _loop = function _loop(i) {
+    images[i].addEventListener('click', function () {
+      cover.src = images[i].src;
+      imageCover = images[i].src;
+    });
+    ['mouseenter', 'mouseleave'].forEach(function (e) {
+      images[i].addEventListener(e, function () {
+        var hovered = isHover(images[i]);
+        hovered ? cover.src = images[i].src : cover.src = imageCover;
+      }, false);
+    });
+  };
+
+  for (var i = 0; i < images.length; i++) {
+    _loop(i);
+  }
 });
 
 /***/ }),

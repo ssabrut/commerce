@@ -2,6 +2,7 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 @import url('https://fonts.googleapis.com/css2?family=Viga&display=swap');
+
 body {
   height: 2000px;
 }
@@ -34,27 +35,51 @@ body {
 }
 
 /* item slider */
-.slick-prev {
+.item-slider .slick-prev {
   top: 111px;
   left: -50px;
 }
 
-.slick-next {
+.item-slider .slick-next {
   top: 111px;
   right: -50px;
 }
 
-.slick-prev::before,
-.slick-next::before {
+.item-slider .slick-prev::before,
+.item-slider .slick-next::before {
   color: blue;
   font-size: 32px;
   opacity: .25;
 }
 
-.slick-prev::before {
+.item-slider .slick-prev::before {
   content: '←';
 }
 
-.slick-next::before {
+.item-slider .slick-next::before {
   content: '→';
+}
+
+/* product detail */
+.product-detail-image .slick-prev {
+  left: -40px;
+}
+
+.product-detail-image .slick-prev::before,
+.product-detail-image .slick-next::before {
+  color: blue;
+  font-size: 32px;
+  opacity: .25;
+}
+
+.product-detail-image .slick-prev::before {
+  content: '←';
+}
+
+.product-detail-image .slick-next::before {
+  content: '→';
+}
+
+.product-detail-image .slick-list {
+  padding: .5rem .25rem;
 }
