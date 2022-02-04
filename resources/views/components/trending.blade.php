@@ -5,23 +5,17 @@
 
   <!-- trending now -->
   <div class="mt-4">
-    <div class="flex flex-wrap justify-between">
-      <div class="mb-4">
+    <div class="flex w-full justify-between">
+      <div>
         @include('components.trending-card')
       </div>
-      <div class="mb-4">
+      <div>
         @include('components.trending-card')
       </div>
-      <div class="mb-4">
+      <div>
         @include('components.trending-card')
       </div>
-      <div class="mb-4">
-        @include('components.trending-card')
-      </div>
-      <div class="mb-4">
-        @include('components.trending-card')
-      </div>
-      <div class="mb-4">
+      <div>
         @include('components.trending-card')
       </div>
     </div>

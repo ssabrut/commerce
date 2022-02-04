@@ -3,26 +3,24 @@
   @include('components.banner')
 
   <!-- recenly added slider -->
-  @include('components.item-slider', [
-  'title' => 'Recently Added',
-  'category' => 'Smartphone',
-  'name' => 'Iphone 13 Pro Max',
-  'price' => '$1,099'
-  ])
+  <section>
+    @include('components.item-slider', [
+    'title' => 'Recently Added',
+    'category' => 'Smartphone',
+    'name' => 'Iphone 13 Pro Max',
+    'price' => '$1,099'
+    ])
+  </section>
 
-  <div class="mt-12">
+  <section class="mt-12">
     <div class="container mx-auto">
-      <div class="flex">
-        <div class="max-w-screen-lg">
 
-          <!-- trending now -->
-          @include('components.trending', [
-          'title' => 'Trending Now',
-          'name' => 'Bluetooth Speaker',
-          'total' => '1m product'
-          ])
-        </div>
-      </div>
+      <!-- trending now -->
+      @include('components.trending', [
+      'title' => 'Trending Now',
+      'name' => 'Bluetooth Speaker',
+      'total' => '1m product'
+      ])
     </div>
-  </div>
+  </section>
 </x-app-layout>
