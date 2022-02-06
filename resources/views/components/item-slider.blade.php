@@ -7,9 +7,15 @@
     <!-- slider -->
     <div class="mt-4">
       <div class="item-slider">
-        <div class="item">
-          @include('components.item-card')
-        </div>
+        @foreach ($items as $item)
+          <div class="item">
+            @include('components.item-card', [
+            'category' => $item->categories[0]->name,
+            'name' => $item->name,
+            'price' => $item->price
+            ])
+          </div>
+        @endforeach
       </div>
     </div>
   </div>

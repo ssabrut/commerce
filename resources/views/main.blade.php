@@ -6,9 +6,7 @@
   <section>
     @include('components.item-slider', [
     'title' => 'Recently Added',
-    'category' => 'Smartphone',
-    'name' => 'Iphone 13 Pro Max',
-    'price' => '$1,099'
+    'items' => $recentlyAddeds
     ])
   </section>
 

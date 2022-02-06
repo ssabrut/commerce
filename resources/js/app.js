@@ -10,6 +10,7 @@ window.Alpine = Alpine;
 Alpine.start();
 
 $(document).ready(function () {
+  const isHover = e => e.parentElement.querySelector(':hover') === e;
 
   // banner
   $('.banner-wrapper').slick({
@@ -23,10 +24,24 @@ $(document).ready(function () {
   $('.item-slider').slick({
     slidesToShow: 6,
     slidesToScroll: 6,
-    variableWidth: true,
     infinite: false,
-    draggable: false,
-    speed: 800
+    draggable: false
+  });
+
+  let slider = document.querySelector('.item-slider');
+  let prevBtn = slider.querySelector('.slick-prev');
+  let nextBtn = slider.querySelector('.slick-next');
+  prevBtn.style.display = 'none';
+  nextBtn.style.display = 'none';
+
+  ['mouseenter'].forEach(function (e) {
+    slider.addEventListener(e, function () {
+      const hovered = isHover(slider);
+      if (hovered) {
+        prevBtn.style.display = 'block';
+        nextBtn.style.display = 'block';
+      }
+    }, false)
   });
 
   // product detail
@@ -38,21 +53,22 @@ $(document).ready(function () {
     variableWidth: true
   });
 
-  const isHover = e => e.parentElement.querySelector(':hover') === e;
   let cover = document.querySelector('img.product-cover');
-  let imageCover = cover.src;
-  let images = document.querySelectorAll('.product-detail-image .product-image');
-  for (let i = 0; i < images.length; i++) {
-    images[i].addEventListener('click', function () {
-      cover.src = images[i].src;
-      imageCover = images[i].src;
-    });
+  if (cover) {
+    let imageCover = cover.src;
+    let images = document.querySelectorAll('.product-detail-image .product-image');
+    for (let i = 0; i < images.length; i++) {
+      images[i].addEventListener('click', function () {
+        cover.src = images[i].src;
+        imageCover = images[i].src;
+      });
 
-    ['mouseenter', 'mouseleave'].forEach(function (e) {
-      images[i].addEventListener(e, function () {
-        const hovered = isHover(images[i]);
-        hovered ? cover.src = images[i].src : cover.src = imageCover;
-      }, false)
-    });
+      ['mouseenter', 'mouseleave'].forEach(function (e) {
+        images[i].addEventListener(e, function () {
+          const hovered = isHover(images[i]);
+          hovered ? cover.src = images[i].src : cover.src = imageCover;
+        }, false)
+      });
+    }
   }
 });

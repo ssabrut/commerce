@@ -2,7 +2,7 @@
   <div class="container 2xl:mx-auto">
     <div class="flex items-center">
       <div class="mr-8">
-        <span class="text-3xl text-secondary font-viga">Commerce</span>
+        <a class="text-3xl text-secondary font-viga" href="{{ route('home') }}">Commerce</a>
       </div>
       <div class="mr-8">
         <span>Categories</span>
