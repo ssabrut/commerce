@@ -19,12 +19,12 @@ class DatabaseSeeder extends Seeder {
         User::factory(10)->create();
         Merchant::factory(5)->create();
         Category::factory(10)->create();
-        Product::factory(20)->create();
+        Product::factory(200)->create();
 
-        foreach (range(1, 10) as $category) {
+        foreach (range(1, 200) as $product) {
             DB::table('product_categories')->insert([
-                'product_id' => random_int(1, 20),
-                'category_id' => $category
+                'product_id' => $product,
+                'category_id' => random_int(1, 10)
             ]);
         }
     }

@@ -5487,7 +5487,11 @@ Window.Vue = vue__WEBPACK_IMPORTED_MODULE_2__["default"];
 window.Alpine = alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"];
 alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"].start();
 $(document).ready(function () {
-  // banner
+  var isHover = function isHover(e) {
+    return e.parentElement.querySelector(':hover') === e;
+  }; // banner
+
+
   $('.banner-wrapper').slick({
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -5498,10 +5502,23 @@ $(document).ready(function () {
   $('.item-slider').slick({
     slidesToShow: 6,
     slidesToScroll: 6,
-    variableWidth: true,
     infinite: false,
-    draggable: false,
-    speed: 800
+    draggable: false
+  });
+  var slider = document.querySelector('.item-slider');
+  var prevBtn = slider.querySelector('.slick-prev');
+  var nextBtn = slider.querySelector('.slick-next');
+  prevBtn.style.display = 'none';
+  nextBtn.style.display = 'none';
+  ['mouseenter'].forEach(function (e) {
+    slider.addEventListener(e, function () {
+      var hovered = isHover(slider);
+
+      if (hovered) {
+        prevBtn.style.display = 'block';
+        nextBtn.style.display = 'block';
+      }
+    }, false);
   }); // product detail
 
   $('.product-detail-image').slick({
@@ -5511,30 +5528,30 @@ $(document).ready(function () {
     draggable: false,
     variableWidth: true
   });
-
-  var isHover = function isHover(e) {
-    return e.parentElement.querySelector(':hover') === e;
-  };
-
   var cover = document.querySelector('img.product-cover');
-  var imageCover = cover.src;
-  var images = document.querySelectorAll('.product-detail-image .product-image');
 
-  var _loop = function _loop(i) {
-    images[i].addEventListener('click', function () {
-      cover.src = images[i].src;
-      imageCover = images[i].src;
-    });
-    ['mouseenter', 'mouseleave'].forEach(function (e) {
-      images[i].addEventListener(e, function () {
-        var hovered = isHover(images[i]);
-        hovered ? cover.src = images[i].src : cover.src = imageCover;
-      }, false);
-    });
-  };
+  if (cover) {
+    (function () {
+      var imageCover = cover.src;
+      var images = document.querySelectorAll('.product-detail-image .product-image');
 
-  for (var i = 0; i < images.length; i++) {
-    _loop(i);
+      var _loop = function _loop(i) {
+        images[i].addEventListener('click', function () {
+          cover.src = images[i].src;
+          imageCover = images[i].src;
+        });
+        ['mouseenter', 'mouseleave'].forEach(function (e) {
+          images[i].addEventListener(e, function () {
+            var hovered = isHover(images[i]);
+            hovered ? cover.src = images[i].src : cover.src = imageCover;
+          }, false);
+        });
+      };
+
+      for (var i = 0; i < images.length; i++) {
+        _loop(i);
+      }
+    })();
   }
 });
 
