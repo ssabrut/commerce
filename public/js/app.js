@@ -5525,38 +5525,44 @@ $(document).ready(function () {
   } // product detail
 
 
-  $('.product-detail-image').slick({
-    slidesToShow: 4,
-    slidesToScroll: 4,
-    infinite: false,
-    draggable: false,
-    variableWidth: true
-  });
-  var cover = document.querySelector('img.product-cover');
+  var productImages = document.querySelectorAll('.product-image');
+  var cover = document.querySelector('.product-cover');
+  var imageCover = cover.src;
 
   if (cover) {
-    (function () {
-      var imageCover = cover.src;
-      var images = document.querySelectorAll('.product-detail-image .product-image');
+    var _loop = function _loop(i) {
+      productImages[i].addEventListener('click', function () {
+        var image = productImages[i].src;
 
-      var _loop = function _loop(i) {
-        images[i].addEventListener('click', function () {
-          cover.src = images[i].src;
-          imageCover = images[i].src;
-        });
-        ['mouseenter', 'mouseleave'].forEach(function (e) {
-          images[i].addEventListener(e, function () {
-            var hovered = isHover(images[i]);
-            hovered ? cover.src = images[i].src : cover.src = imageCover;
-          }, false);
-        });
-      };
+        for (var j = 0; j < productImages.length; j++) {
+          if (productImages[j].parentElement.classList.contains('image-active')) {
+            productImages[j].parentElement.classList.remove('image-active');
+          }
+        }
 
-      for (var i = 0; i < images.length; i++) {
-        _loop(i);
-      }
-    })();
-  }
+        productImages[i].parentElement.classList.add('image-active');
+        cover.src = image;
+      });
+    };
+
+    for (var i = 0; i < productImages.length; i++) {
+      _loop(i);
+    }
+  } // let images = document.querySelectorAll('.product-detail-image .product-image');
+  // for (let i = 0; i < images.length; i++) {
+  //   images[i].addEventListener('click', function () {
+  //     cover.src = images[i].src;
+  //     imageCover = images[i].src;
+  //   });
+  //   ['mouseenter', 'mouseleave'].forEach(function (e) {
+  //     images[i].addEventListener(e, function () {
+  //       const hovered = isHover(images[i]);
+  //       hovered ? cover.src = images[i].src : cover.src = imageCover;
+  //     }, false)
+  //   });
+  // }
+  // }
+
 });
 
 /***/ }),
