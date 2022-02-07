@@ -7,6 +7,22 @@ body {
   height: 2000px;
 }
 
+/* ready to use classes */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.image-active {
+  border: 1px solid #007EA7;
+}
+
+.no-spinner::-webkit-outer-spin-button,
+.no-spinner::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+  padding: 0;
+}
+
 /* banner */
 .banner-2 {
   background-color: #091539;

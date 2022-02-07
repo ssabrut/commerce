@@ -47,30 +47,39 @@ $(document).ready(function () {
   }
 
   // product detail
-  $('.product-detail-image').slick({
-    slidesToShow: 4,
-    slidesToScroll: 4,
-    infinite: false,
-    draggable: false,
-    variableWidth: true
-  });
+  let productImages = document.querySelectorAll('.product-image');
+  let cover = document.querySelector('.product-cover');
+  let imageCover = cover.src;
 
-  let cover = document.querySelector('img.product-cover');
   if (cover) {
-    let imageCover = cover.src;
-    let images = document.querySelectorAll('.product-detail-image .product-image');
-    for (let i = 0; i < images.length; i++) {
-      images[i].addEventListener('click', function () {
-        cover.src = images[i].src;
-        imageCover = images[i].src;
-      });
+    for (let i = 0; i < productImages.length; i++) {
+      productImages[i].addEventListener('click', function () {
+        let image = productImages[i].src;
+        for (let j = 0; j < productImages.length; j++) {
+          if (productImages[j].parentElement.classList.contains('image-active')) {
+            productImages[j].parentElement.classList.remove('image-active');
+          }
+        }
 
-      ['mouseenter', 'mouseleave'].forEach(function (e) {
-        images[i].addEventListener(e, function () {
-          const hovered = isHover(images[i]);
-          hovered ? cover.src = images[i].src : cover.src = imageCover;
-        }, false)
+        productImages[i].parentElement.classList.add('image-active');
+        cover.src = image;
       });
     }
   }
+
+  // let images = document.querySelectorAll('.product-detail-image .product-image');
+  // for (let i = 0; i < images.length; i++) {
+  //   images[i].addEventListener('click', function () {
+  //     cover.src = images[i].src;
+  //     imageCover = images[i].src;
+  //   });
+
+  //   ['mouseenter', 'mouseleave'].forEach(function (e) {
+  //     images[i].addEventListener(e, function () {
+  //       const hovered = isHover(images[i]);
+  //       hovered ? cover.src = images[i].src : cover.src = imageCover;
+  //     }, false)
+  //   });
+  // }
+  // }
 });

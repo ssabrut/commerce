@@ -16,7 +16,7 @@ class ProductFactory extends Factory {
             'name' => $this->faker->domainName(),
             'slug' => $this->faker->slug(),
             'price' => random_int(1, 99999),
-            'description' => $this->faker->realText(),
+            'description' => $this->faker->paragraphs(5, true),
         ];
     }
 }

@@ -10,10 +10,11 @@ use Livewire\Component;
 
 class AddToCart extends Component {
 
-    public $slug;
+    public $slug, $quantity;
 
     public function mount($slug) {
         $this->slug = $slug;
+        $this->quantity = 1;
     }
 
     public function addToCart() {
@@ -24,8 +25,16 @@ class AddToCart extends Component {
             'cart_id' => $cart->id,
             'product_id' => $product->id,
             'quantity' => 1,
-            'created_at'=> Carbon::now()
+            'created_at' => Carbon::now()
         ]);
+    }
+
+    public function decrement() {
+        $this->quantity--;
+    }
+
+    public function increment() {
+        $this->quantity++;
     }
 
     public function render() {

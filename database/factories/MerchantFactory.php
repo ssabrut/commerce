@@ -16,6 +16,7 @@ class MerchantFactory extends Factory {
             'name' => $this->faker->company(),
             'slug' => $this->faker->slug(),
             'location' => $this->faker->address(),
+            'image_path' => 'https://play-lh.googleusercontent.com/fHr2pe1B7n_dvrFX3e-P-BFrsiMJ-nPh4_wn4Yj2vwlINS_Lb4CwK8qKGK8upu5to-RK'
         ];
     }
 }
