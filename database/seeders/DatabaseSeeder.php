@@ -27,5 +27,11 @@ class DatabaseSeeder extends Seeder {
                 'category_id' => random_int(1, 10)
             ]);
         }
+
+        foreach (range(1, 10) as $user_id) {
+            DB::table('carts')->insert([
+                'user_id' => $user_id
+            ]);
+        }
     }
 }

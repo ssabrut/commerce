@@ -42,7 +42,7 @@ class ProductController extends Controller {
      */
     public function show($merchant, $slug) {
         return view('products.index', [
-            'name' => 'Iphone 13 Pro Max',
+            'slug' => $slug,
             'image_paths' => [
                 'https://cdn.lumen.id/commerce/digimap/file/84417e65-4d7e-4762-86b9-87dbe7a75cf8/PDP-iPhone-13-Pink-1-medium.jpeg',
                 'https://awsimages.detik.net.id/community/media/visual/2021/09/23/iphone-13-pro-max_169.jpeg?w=700&q=90',
