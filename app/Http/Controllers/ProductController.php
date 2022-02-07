@@ -37,10 +37,10 @@ class ProductController extends Controller {
     /**
      * Display the specified resource.
      *
-     * @param  App\Models\Product
+     * @param string $merchant, $slug
      * @return \Illuminate\Http\Response
      */
-    public function show($id) {
+    public function show($merchant, $slug) {
         return view('products.index', [
             'name' => 'Iphone 13 Pro Max',
             'image_paths' => [

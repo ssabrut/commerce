@@ -4,14 +4,15 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProductCategoriesTable extends Migration {
+class CreateProductImagesTable extends Migration {
     /**
      * Run the migrations.
      *
      * @return void
      */
     public function up() {
-        Schema::create('product_categories', function (Blueprint $table) {
+        Schema::create('product_images', function (Blueprint $table) {
+            $table->id();
             $table->foreignId('product_id')
                 ->unsigned()
                 ->references('id')
@@ -19,13 +20,8 @@ class CreateProductCategoriesTable extends Migration {
                 ->constrained()
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
-            $table->foreignId('category_id')
-                ->unsigned()
-                ->references('id')
-                ->on('categories')
-                ->constrained()
-                ->cascadeOnUpdate()
-                ->cascadeOnDelete();
+            $table->string('image_path');
+            $table->timestamps();
         });
     }
 
@@ -35,6 +31,6 @@ class CreateProductCategoriesTable extends Migration {
      * @return void
      */
     public function down() {
-        Schema::dropIfExists('product_categories');
+        Schema::dropIfExists('product_images');
     }
 }
