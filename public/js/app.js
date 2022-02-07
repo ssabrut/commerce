@@ -5506,20 +5506,24 @@ $(document).ready(function () {
     draggable: false
   });
   var slider = document.querySelector('.item-slider');
-  var prevBtn = slider.querySelector('.slick-prev');
-  var nextBtn = slider.querySelector('.slick-next');
-  prevBtn.style.display = 'none';
-  nextBtn.style.display = 'none';
-  ['mouseenter'].forEach(function (e) {
-    slider.addEventListener(e, function () {
-      var hovered = isHover(slider);
 
-      if (hovered) {
-        prevBtn.style.display = 'block';
-        nextBtn.style.display = 'block';
-      }
-    }, false);
-  }); // product detail
+  if (slider) {
+    var prevBtn = slider.querySelector('.slick-prev');
+    var nextBtn = slider.querySelector('.slick-next');
+    prevBtn.style.display = 'none';
+    nextBtn.style.display = 'none';
+    ['mouseenter', 'mouseleave'].forEach(function (e) {
+      slider.addEventListener(e, function () {
+        var hovered = isHover(slider);
+
+        if (hovered) {
+          prevBtn.style.display = 'block';
+          nextBtn.style.display = 'block';
+        }
+      }, false);
+    });
+  } // product detail
+
 
   $('.product-detail-image').slick({
     slidesToShow: 4,

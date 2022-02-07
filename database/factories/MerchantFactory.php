@@ -14,6 +14,7 @@ class MerchantFactory extends Factory {
         return [
             'owner_id' => random_int(1, 10),
             'name' => $this->faker->company(),
+            'slug' => $this->faker->slug(),
             'location' => $this->faker->address(),
         ];
     }

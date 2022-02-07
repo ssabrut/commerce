@@ -29,20 +29,22 @@ $(document).ready(function () {
   });
 
   let slider = document.querySelector('.item-slider');
-  let prevBtn = slider.querySelector('.slick-prev');
-  let nextBtn = slider.querySelector('.slick-next');
-  prevBtn.style.display = 'none';
-  nextBtn.style.display = 'none';
+  if (slider) {
+    let prevBtn = slider.querySelector('.slick-prev');
+    let nextBtn = slider.querySelector('.slick-next');
+    prevBtn.style.display = 'none';
+    nextBtn.style.display = 'none';
 
-  ['mouseenter'].forEach(function (e) {
-    slider.addEventListener(e, function () {
-      const hovered = isHover(slider);
-      if (hovered) {
-        prevBtn.style.display = 'block';
-        nextBtn.style.display = 'block';
-      }
-    }, false)
-  });
+    ['mouseenter', 'mouseleave'].forEach(function (e) {
+      slider.addEventListener(e, function () {
+        const hovered = isHover(slider);
+        if (hovered) {
+          prevBtn.style.display = 'block';
+          nextBtn.style.display = 'block';
+        }
+      }, false)
+    });
+  }
 
   // product detail
   $('.product-detail-image').slick({

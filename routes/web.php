@@ -15,13 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::name('home')
-    ->get('/', [HomeController::class, 'index']);
+Route::name('home')->get('/', [HomeController::class, 'index']);
 
 Route::group(['middleware' => ['auth']], function () {
-    Route::resources([
-        'products' => ProductController::class
-    ]);
+    
+    // get
+    Route::name('products.show')->get('/{merchant}/{product}', [ProductController::class, 'show']);
 });
 
 // Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

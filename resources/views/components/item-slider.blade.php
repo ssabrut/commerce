@@ -12,6 +12,8 @@
             @include('components.item-card', [
             'category' => $item->categories[0]->name,
             'name' => $item->name,
+            'slug' => $item->slug,
+            'merchant' => $item->merchant->slug,
             'price' => $item->price
             ])
           </div>
