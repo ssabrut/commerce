@@ -5527,9 +5527,10 @@ $(document).ready(function () {
 
   var productImages = document.querySelectorAll('.product-image');
   var cover = document.querySelector('.product-cover');
-  var imageCover = cover.src;
 
   if (cover) {
+    var imageCover = cover.src;
+
     var _loop = function _loop(i) {
       productImages[i].addEventListener('click', function () {
         var image = productImages[i].src;

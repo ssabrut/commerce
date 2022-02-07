@@ -49,9 +49,9 @@ $(document).ready(function () {
   // product detail
   let productImages = document.querySelectorAll('.product-image');
   let cover = document.querySelector('.product-cover');
-  let imageCover = cover.src;
 
   if (cover) {
+    let imageCover = cover.src;
     for (let i = 0; i < productImages.length; i++) {
       productImages[i].addEventListener('click', function () {
         let image = productImages[i].src;
