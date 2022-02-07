@@ -710,6 +710,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   right: 0px;
 }.top-0{
   top: 0px;
+}.right-24{
+  right: 6rem;
+}.right-32{
+  right: 8rem;
+}.right-48{
+  right: 12rem;
+}.right-64{
+  right: 16rem;
+}.right-60{
+  right: 15rem;
 }.z-0{
   z-index: 0;
 }.z-50{

@@ -33,4 +33,8 @@ class Product extends Model {
     public function images() {
         return $this->hasMany(ProductImage::class);
     }
+
+    public function users() {
+        return $this->belongsToMany(User::class);
+    }
 }

@@ -10,23 +10,12 @@ use Livewire\Component;
 
 class AddToCart extends Component {
 
-    public $slug, $quantity;
+    public $slug, $quantity, $product;
 
     public function mount($slug) {
         $this->slug = $slug;
         $this->quantity = 1;
-    }
-
-    public function addToCart() {
-        $cart = Cart::where('user_id', auth()->user()->id)->first();
-        $product = Product::firstWhere('slug', $this->slug);
-
-        DB::table('cart_products')->insert([
-            'cart_id' => $cart->id,
-            'product_id' => $product->id,
-            'quantity' => 1,
-            'created_at' => Carbon::now()
-        ]);
+        $this->product = Product::firstWhere('slug', $this->slug);
     }
 
     public function decrement() {
@@ -35,6 +24,24 @@ class AddToCart extends Component {
 
     public function increment() {
         $this->quantity++;
+    }
+
+    public function addToCart() {
+        $cart = Cart::where('user_id', auth()->user()->id)->first();
+
+        DB::table('cart_products')->insert([
+            'cart_id' => $cart->id,
+            'product_id' => $this->product->id,
+            'quantity' => $this->quantity,
+            'created_at' => Carbon::now()
+        ]);
+    }
+
+    public function wishlist() {
+        DB::table('wishlists')->insert([
+            'user_id' => auth()->user()->id,
+            'product_id' => $this->product->id
+        ]);
     }
 
     public function render() {

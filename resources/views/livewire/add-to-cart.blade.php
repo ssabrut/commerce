@@ -42,7 +42,7 @@
 
     <!-- wishlist btn -->
     <div>
-      <div>
+      <div wire:click="wishlist">
         <button>
           <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-complement" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd"

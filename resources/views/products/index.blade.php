@@ -39,7 +39,7 @@
           <!-- product -->
           <div>
             <div class="mb-2">
-              <span class="font-semibold text-4xl">Iphone 13 Pro Max - Rose Gold</span>
+              <span class="font-semibold text-4xl">{{ $product->name }}</span>
             </div>
 
             <!-- star review -->
