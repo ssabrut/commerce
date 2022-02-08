@@ -22,7 +22,7 @@ class JetstreamServiceProvider extends ServiceProvider {
     public function register() {
         $this->registerComponent('authentication-card-header');
         $this->registerComponent('authentication-card-option');
-        $this->registerComponent('quantity-form');
+        $this->registerComponent('card-cart');
     }
 
     /**
