@@ -68,13 +68,13 @@
 
                   <!-- subtotal -->
                   <div class="mb-2 flex justify-between items-center">
-                    <span class="text-complement">Subtotal:</span>
+                    <span class="text-complement">Subtotal ({{ $totalItem }} item):</span>
                     <span class="text-complement">$ {{ number_format($subtotal, 0, ',') }}</span>
                   </div>
 
                   <!-- shipping -->
                   <div class="mb-2 flex justify-between items-center">
-                    <span class="text-complement">Shipping</span>
+                    <span class="text-complement">Shipping:</span>
                     <span class="text-complement">$ {{ number_format($shipping, 0, ',') }}</span>
                   </div>
 

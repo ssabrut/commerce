@@ -10,7 +10,7 @@ use Livewire\Component;
 
 class Cart extends Component {
 
-    public $cart, $userProducts, $quantity, $subtotal, $shipping, $tax, $total;
+    public $cart, $userProducts, $quantity, $subtotal, $shipping, $tax, $total, $totalItem;
 
     protected $listeners = [
         'setQuantity' => 'setQuantity'
@@ -66,6 +66,7 @@ class Cart extends Component {
         $this->shipping = 0;
         $this->tax = 0;
         $this->total = 0;
+        $this->totalItem = 0;
         $this->userProducts = DB::table('cart_products')
             ->join('products', 'cart_products.product_id', '=', 'products.id')
             ->join('merchants', 'products.merchant_id', '=', 'merchants.id')
@@ -77,6 +78,7 @@ class Cart extends Component {
         for ($i = 0; $i < count($this->userProducts); $i++) {
             $total = $this->userProducts[$i]->price * $this->userProducts[$i]->quantity;
             $this->subtotal += $total;
+            $this->totalItem += $this->userProducts[$i]->quantity;
         }
 
         $this->shipping = $this->subtotal * 0.001;
