@@ -12,7 +12,6 @@ class CreateCartProductsTable extends Migration {
      */
     public function up() {
         Schema::create('cart_products', function (Blueprint $table) {
-            $table->id();
             $table->foreignId('product_id')
                 ->references('id')
                 ->on('products')

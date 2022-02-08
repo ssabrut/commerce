@@ -13,17 +13,7 @@ class CartController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        $cart = Cart::firstWhere('user_id', auth()->user()->id);
-        $userProducts = DB::table('cart_products')
-            ->join('products', 'cart_products.product_id', '=', 'products.id')
-            ->join('merchants', 'products.merchant_id', '=', 'merchants.id')
-            ->select('products.name as product_name', 'products.price', 'cart_products.quantity', 'merchants.name as merchant_name')
-            ->where('cart_id', $cart->id)
-            ->get();
-
-        return view('cart.index', [
-            'userProducts' => $userProducts
-        ]);
+        return view('cart.index');
     }
 
     /**

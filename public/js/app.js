@@ -5527,7 +5527,7 @@ $(document).ready(function () {
 
   var productImages = document.querySelectorAll('.product-image');
   var cover = document.querySelector('.product-cover');
-  var quantityForm = document.getElementById('quantity');
+  var quantityForm = document.querySelectorAll('#quantity');
 
   if (cover) {
     var imageCover = cover.src;
@@ -5552,11 +5552,20 @@ $(document).ready(function () {
     }
   }
 
-  if (quantityForm) {
-    quantityForm.addEventListener('change', function () {
-      var quantity = quantityForm.value;
-      Livewire.emit('setQuantity', quantity);
-    });
+  if (quantityForm.length > 0) {
+    var _loop2 = function _loop2(_i) {
+      quantityForm[_i].addEventListener('change', function () {
+        var quantity = quantityForm[_i].value;
+
+        var slug = quantityForm[_i].getAttribute('data-slug');
+
+        Livewire.emit('setQuantity', slug, quantity);
+      });
+    };
+
+    for (var _i = 0; _i < quantityForm.length; _i++) {
+      _loop2(_i);
+    }
   } // let images = document.querySelectorAll('.product-detail-image .product-image');
   // for (let i = 0; i < images.length; i++) {
   //   images[i].addEventListener('click', function () {

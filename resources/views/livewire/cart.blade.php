@@ -1,84 +1,108 @@
 <div>
-  <div class="border border-y-2 border-x-0 py-4">
-    <div class="grid grid-rows-3 grid-cols-8">
-
-      <!-- row 1 -->
-      <div class="col-span-full row-span-full">
-        <div>
-          <div class="flex items-center">
-            <div class="w-8 h-8 rounded-full overflow-hidden">
-              <img
-                src="https://play-lh.googleusercontent.com/fHr2pe1B7n_dvrFX3e-P-BFrsiMJ-nPh4_wn4Yj2vwlINS_Lb4CwK8qKGK8upu5to-RK" />
-            </div>
-            <div class="ml-2">
-              <span>{{ $merchant }}</span>
-            </div>
-          </div>
-        </div>
+  <div class="mt-12">
+    <div class="container mx-auto">
+      <div class="mb-4">
+        <span class="text-3xl font-bold">Your Cart</span>
       </div>
+      <div class="grid grid-cols-12">
 
-      <!-- row 2 -->
-      <div class="col-span-full mt-4">
-        <div class="grid grid-cols-8">
-
-          <!-- product iamge -->
-          <div class="w-28 h-28 border border-slate-200 rounded-lg overflow-hidden">
-            <img
-              src="https://cdn.lumen.id/commerce/digimap/file/84417e65-4d7e-4762-86b9-87dbe7a75cf8/PDP-iPhone-13-Pink-1-medium.jpeg" />
-          </div>
-
-          <!-- product detail -->
-          <div class="col-span-6">
-            <div>
-              <span>{{ $name }}</span>
-            </div>
-            <div>
-              <span class="text-complement">In Stock</span>
-            </div>
-          </div>
-
-          <!-- price -->
-          <div>
-            <div class="flex justify-end mr-4">
-              <span class="font-bold">${{ $price }}</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-      <!-- row 3 -->
-      <div class="col-span-full mt-4">
-
-        <!-- setting -->
-        <div class="flex justify-end items-center">
-          <div class="flex mr-8">
-            <div>
-              <button class="mr-8 text-complement font-semibold text-sm flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd"
-                    d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
-                    clip-rule="evenodd" />
-                </svg>Add to Wishlist</button>
-            </div>
-            <div>
-              <button class="border-l-2 pl-8 text-complement font-semibold flex items-center text-sm">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd"
-                    d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
-                    clip-rule="evenodd" />
-                </svg>Remove</button>
-            </div>
-          </div>
-
-          <!-- quantity -->
-          <div>
-            <div>
-              <x-jet-quantity-form quantity="{{ $quantity }}" />
-            </div>
+        <!-- card cart -->
+        <div class="grid grid-cols-8 col-span-8">
+          <div class="col-span-8">
+            @foreach ($userProducts as $userProduct)
+              <x-card-cart merchant="{{ $userProduct->merchant_name }}" name="{{ $userProduct->product_name }}"
+                price="{{ $userProduct->price }}" quantity="{{ $userProduct->quantity }}"
+                slug="{{ $userProduct->slug }}" />
+            @endforeach
           </div>
         </div>
 
+        <!-- summary card -->
+        <div class="col-span-4 ml-12">
+
+          <!-- shipping card -->
+          <div class="border border-slate-200 rounded-lg px-5 pt-4 pb-6">
+            <div>
+              <div class="flex items-center text-complement">
+                <span class="text-xl font-bold mr-2">Estimate Shipping & Tax</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+
+              <!-- country dropdown -->
+              <div class="mt-4">
+                <div>
+                  <select class="w-full rounded font-bold">
+                    <option>Indonesia</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- postal code form -->
+              <div class="mt-4">
+                <div class="flex items-center justify-between">
+                  <div class="w-fit">
+                    <span class="font-bold">Zip Code</span>
+                  </div>
+                  <div class="w-4/5">
+                    <input class="w-full no-spinner rounded" type="number" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- summary card -->
+          <div class="mt-4">
+            <div class="border border-slate-200 rounded-lg px-5 py-4">
+              <div>
+                <div>
+                  <span class="text-xl font-bold">Summary</span>
+                </div>
+              </div>
+              <div class="mt-4">
+                <div class="mb-4">
+
+                  <!-- subtotal -->
+                  <div class="mb-2 flex justify-between items-center">
+                    <span class="text-complement">Subtotal:</span>
+                    <span class="text-complement">$ {{ number_format($subtotal, 0, ',') }}</span>
+                  </div>
+
+                  <!-- shipping -->
+                  <div class="mb-2 flex justify-between items-center">
+                    <span class="text-complement">Shipping</span>
+                    <span class="text-complement">$ {{ number_format($shipping, 0, ',') }}</span>
+                  </div>
+
+                  <!-- tax -->
+                  <div class="flex justify-between items-center">
+                    <span class="text-complement">Tax:</span>
+                    <span class="text-complement">$ {{ number_format($tax, 0, ',') }}</span>
+                  </div>
+                </div>
+
+                <!-- total -->
+                <div class="border border-t-2 border-x-0 border-b-0 pt-4">
+                  <div class="flex justify-between items-center">
+                    <span class="font-bold">Total</span>
+                    <span class="font-bold">$ {{ number_format($total, 0, ',') }}</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- checkout btn -->
+              <div class="mt-4">
+                <div>
+                  <a class="bg-secondary w-full inline-block text-center py-2 rounded text-white font-semibold" href="#">Checkout</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
