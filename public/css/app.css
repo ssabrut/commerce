@@ -710,16 +710,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   right: 0px;
 }.top-0{
   top: 0px;
-}.right-24{
-  right: 6rem;
-}.right-32{
-  right: 8rem;
-}.right-48{
-  right: 12rem;
-}.right-64{
-  right: 16rem;
-}.right-60{
-  right: 15rem;
 }.z-0{
   z-index: 0;
 }.z-50{
@@ -732,6 +722,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   grid-column: span 4 / span 4;
 }.col-span-7{
   grid-column: span 7 / span 7;
+}.col-span-8{
+  grid-column: span 8 / span 8;
+}.col-span-full{
+  grid-column: 1 / -1;
+}.row-span-full{
+  grid-row: 1 / -1;
 }.mx-4{
   margin-left: 1rem;
   margin-right: 1rem;
@@ -854,6 +850,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 100%;
 }.h-96{
   height: 24rem;
+}.h-28{
+  height: 7rem;
 }.min-h-screen{
   min-height: 100vh;
 }.w-5{
@@ -888,20 +886,22 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 23rem;
 }.w-24{
   width: 6rem;
-}.w-fit{
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-}.w-16{
-  width: 4rem;
 }.w-7{
   width: 1.75rem;
 }.w-56{
   width: 14rem;
 }.w-62{
   width: 15.15rem;
+}.w-fit{
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}.w-16{
+  width: 4rem;
 }.w-128{
   width: 32rem;
+}.w-28{
+  width: 7rem;
 }.min-w-0{
   min-width: 0px;
 }.max-w-screen-xl{
@@ -954,6 +954,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   grid-template-columns: repeat(1, minmax(0, 1fr));
 }.grid-cols-12{
   grid-template-columns: repeat(12, minmax(0, 1fr));
+}.grid-cols-8{
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+}.grid-rows-3{
+  grid-template-rows: repeat(3, minmax(0, 1fr));
 }.flex-row{
   flex-direction: row;
 }.flex-col{
@@ -1035,6 +1039,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-width: 1px;
 }.border-2{
   border-width: 2px;
+}.border-y-2{
+  border-top-width: 2px;
+  border-bottom-width: 2px;
+}.border-x-0{
+  border-left-width: 0px;
+  border-right-width: 0px;
 }.border-b-2{
   border-bottom-width: 2px;
 }.border-l-4{
@@ -1045,6 +1055,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-bottom-width: 1px;
 }.border-r{
   border-right-width: 1px;
+}.border-l-2{
+  border-left-width: 2px;
 }.border-none{
   border-style: none;
 }.border-gray-300{
@@ -1202,6 +1214,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-top: 2rem;
 }.pl-4{
   padding-left: 1rem;
+}.pl-8{
+  padding-left: 2rem;
 }.text-left{
   text-align: left;
 }.text-center{
@@ -1408,8 +1422,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
 }.ease-in{
   transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
-}body {
-  height: 2000px;
 }/* ready to use classes */.no-scrollbar::-webkit-scrollbar {
   display: none;
 }.image-active {
@@ -1560,13 +1572,13 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
   --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color);
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
-}.focus\:ring-0:focus{
-  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
-  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(0px + var(--tw-ring-offset-width)) var(--tw-ring-color);
-  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
 }.focus\:ring-2:focus{
   --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
   --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+}.focus\:ring-0:focus{
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(0px + var(--tw-ring-offset-width)) var(--tw-ring-color);
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
 }.focus\:ring-gray-300:focus{
   --tw-ring-opacity: 1;

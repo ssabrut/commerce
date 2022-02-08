@@ -5527,6 +5527,7 @@ $(document).ready(function () {
 
   var productImages = document.querySelectorAll('.product-image');
   var cover = document.querySelector('.product-cover');
+  var quantityForm = document.getElementById('quantity');
 
   if (cover) {
     var imageCover = cover.src;
@@ -5549,6 +5550,13 @@ $(document).ready(function () {
     for (var i = 0; i < productImages.length; i++) {
       _loop(i);
     }
+  }
+
+  if (quantityForm) {
+    quantityForm.addEventListener('change', function () {
+      var quantity = quantityForm.value;
+      Livewire.emit('setQuantity', quantity);
+    });
   } // let images = document.querySelectorAll('.product-detail-image .product-image');
   // for (let i = 0; i < images.length; i++) {
   //   images[i].addEventListener('click', function () {

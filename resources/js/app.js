@@ -49,6 +49,7 @@ $(document).ready(function () {
   // product detail
   let productImages = document.querySelectorAll('.product-image');
   let cover = document.querySelector('.product-cover');
+  let quantityForm = document.getElementById('quantity');
 
   if (cover) {
     let imageCover = cover.src;
@@ -65,6 +66,13 @@ $(document).ready(function () {
         cover.src = image;
       });
     }
+  }
+
+  if (quantityForm) {
+    quantityForm.addEventListener('change', function () {
+      let quantity = quantityForm.value;
+      Livewire.emit('setQuantity', quantity);
+    });
   }
 
   // let images = document.querySelectorAll('.product-detail-image .product-image');
