@@ -12,6 +12,10 @@ class AddToCart extends Component {
 
     public $slug, $quantity, $product;
 
+    protected $listeners = [
+        'setQuantity' => 'setQuantity'
+    ];
+
     public function mount($slug) {
         $this->slug = $slug;
         $this->quantity = 1;
@@ -24,6 +28,10 @@ class AddToCart extends Component {
 
     public function increment() {
         $this->quantity++;
+    }
+
+    public function setQuantity($quantity) {
+        $this->quantity = $quantity;
     }
 
     public function addToCart() {
