@@ -13,18 +13,11 @@ $(document).ready(function () {
   const isHover = e => e.parentElement.querySelector(':hover') === e;
 
   // header
-  let userDropdown = document.querySelector('.user-dropdown');
-  let userButton = document.querySelector('.user-button');
-  let toggle = false;
-  if (userButton) {
-    userButton.addEventListener('click', function () {
-      if (!toggle) {
-        userDropdown.classList.remove('hidden');
-        toggle = !toggle;
-      } else {
-        userDropdown.classList.add('hidden');
-        toggle = !toggle;
-      }
+  let searchBar = document.querySelector('.search-bar');
+  if (searchBar) {
+    searchBar.addEventListener('input', function () {
+      let query = this.value;
+      Livewire.emit('setQuery', query);
     });
   }
 

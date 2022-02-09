@@ -6,7 +6,7 @@
     <div>
       <div class="flex flex-wrap">
         @forelse ($wishlists as $wishlist)
-          <a class="mr-6" href="{{ route('products.show', ['product' => $wishlist->slug]) }}">
+          <a class="mr-6" href="">
             <div>
               <img class="border border-gray-300 rounded-lg h-62 w-62 object-fill"
                 src="https://cdn.lumen.id/commerce/digimap/file/84417e65-4d7e-4762-86b9-87dbe7a75cf8/PDP-iPhone-13-Pink-1-medium.jpeg" />

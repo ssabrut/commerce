@@ -864,6 +864,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 100%;
 }.h-96{
   height: 24rem;
+}.h-fit{
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}.h-\[20px\]{
+  height: 20px;
 }.min-h-screen{
   min-height: 100vh;
 }.w-5{
@@ -1462,6 +1468,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   transition-duration: 300ms;
 }.duration-100{
   transition-duration: 100ms;
+}.duration-500{
+  transition-duration: 500ms;
 }.ease-in-out{
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }.ease-out{

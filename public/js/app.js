@@ -5492,19 +5492,12 @@ $(document).ready(function () {
   }; // header
 
 
-  var userDropdown = document.querySelector('.user-dropdown');
-  var userButton = document.querySelector('.user-button');
-  var toggle = false;
+  var searchBar = document.querySelector('.search-bar');
 
-  if (userButton) {
-    userButton.addEventListener('click', function () {
-      if (!toggle) {
-        userDropdown.classList.remove('hidden');
-        toggle = !toggle;
-      } else {
-        userDropdown.classList.add('hidden');
-        toggle = !toggle;
-      }
+  if (searchBar) {
+    searchBar.addEventListener('input', function () {
+      var query = this.value;
+      Livewire.emit('setQuery', query);
     });
   } // banner
 
