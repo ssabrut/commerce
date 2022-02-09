@@ -9,13 +9,7 @@
       <div class="item-slider">
         @foreach ($items as $item)
           <div class="item">
-            @include('components.item-card', [
-            'category' => $item->categories[0]->name,
-            'name' => $item->name,
-            'slug' => $item->slug,
-            'merchant' => $item->merchant->slug,
-            'price' => $item->price
-            ])
+            @include('components.item-card', $item)
           </div>
         @endforeach
       </div>
