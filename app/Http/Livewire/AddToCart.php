@@ -10,7 +10,7 @@ use Livewire\Component;
 
 class AddToCart extends Component {
 
-    public $slug, $quantity, $product;
+    public $slug, $quantity, $product, $showFlyout;
 
     protected $listeners = [
         'setQuantity' => 'setQuantity'
@@ -19,6 +19,7 @@ class AddToCart extends Component {
     public function mount($slug) {
         $this->slug = $slug;
         $this->quantity = 1;
+        $this->showFlyout = false;
         $this->product = Product::firstWhere('slug', $this->slug);
     }
 

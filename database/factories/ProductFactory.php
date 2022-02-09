@@ -13,9 +13,9 @@ class ProductFactory extends Factory {
     public function definition() {
         return [
             'merchant_id' => random_int(1, 5),
-            'name' => $this->faker->domainName(),
+            'name' => $this->faker->company(),
             'slug' => $this->faker->slug(),
-            'price' => random_int(1, 99999),
+            'price' => random_int(1, 500),
             'description' => $this->faker->paragraphs(5, true),
         ];
     }

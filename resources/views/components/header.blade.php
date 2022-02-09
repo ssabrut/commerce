@@ -1,4 +1,4 @@
-<header class="bg-white h-20 drop-shadow grid place-items-center">
+<header class="bg-white h-20 shadow z-10 grid place-items-center">
   <div class="container 2xl:mx-auto">
     <div class="flex items-center">
       <div class="mr-8">

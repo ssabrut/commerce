@@ -10,7 +10,7 @@ use Livewire\Component;
 
 class Cart extends Component {
 
-    public $cart, $userProducts, $quantity, $subtotal, $shipping, $tax, $total, $totalItem;
+    public $cart, $userProducts, $quantity, $subtotal, $shipping, $tax, $total, $totalItem, $showAlert;
 
     protected $listeners = [
         'setQuantity' => 'setQuantity'
@@ -18,6 +18,7 @@ class Cart extends Component {
 
     public function mount() {
         $this->cart = ModelsCart::firstWhere('user_id', auth()->user()->id);
+        $this->showAlert = false;
     }
 
     public function remove($slug) {
@@ -81,7 +82,7 @@ class Cart extends Component {
             $this->totalItem += $this->userProducts[$i]->quantity;
         }
 
-        $this->shipping = $this->subtotal * 0.001;
+        $this->shipping = $this->subtotal * 0.01;
         $this->tax = $this->subtotal * 0.1;
         $this->total = $this->subtotal + $this->shipping + $this->tax;
 

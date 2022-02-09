@@ -1,4 +1,4 @@
-<nav class="bg-secondary h-10 grid place-items-center">
+<nav class="bg-secondary h-10 grid place-items-center z-10">
   <div class="container 2xl:mx-auto">
     <div class="text-right">
       <div class="inline-flex">
