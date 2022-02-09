@@ -5489,24 +5489,7 @@ alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"].start();
 $(document).ready(function () {
   var isHover = function isHover(e) {
     return e.parentElement.querySelector(':hover') === e;
-  }; // header
-
-
-  var userDropdown = document.querySelector('.user-dropdown');
-  var userButton = document.querySelector('.user-button');
-  var toggle = false;
-
-  if (userButton) {
-    userButton.addEventListener('click', function () {
-      if (!toggle) {
-        userDropdown.classList.remove('hidden');
-        toggle = !toggle;
-      } else {
-        userDropdown.classList.add('hidden');
-        toggle = !toggle;
-      }
-    });
-  } // banner
+  }; // banner
 
 
   $('.banner-wrapper').slick({

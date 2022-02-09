@@ -36,7 +36,7 @@
 
   <div class="min-h-screen">
     @livewire('navigation-menu')
-    @include('components.header')
+    @livewire('header')
 
     <!-- Page Heading -->
     @if (isset($header))
