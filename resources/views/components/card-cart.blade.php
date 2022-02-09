@@ -64,7 +64,7 @@
           </div>
 
           <!-- remove btn -->
-          <div>
+          <div x-data="{ show: @entangle('showAlert') }" @click="show = !show">
             <button class="border-l-2 pl-8 text-complement font-semibold flex items-center text-sm"
               wire:click="remove('{{ $slug }}')">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">

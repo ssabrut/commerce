@@ -27,6 +27,7 @@
     integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <script defer src="https://unpkg.com/alpinejs@3.8.1/dist/cdn.min.js"></script>
   <script src="{{ mix('js/app.js') }}" defer></script>
 </head>
 

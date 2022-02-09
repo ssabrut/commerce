@@ -5552,7 +5552,7 @@ $(document).ready(function () {
     }
   }
 
-  if (quantityForm.length > 0) {
+  if (quantityForm.length >= 1 && !quantityForm[0].classList.contains('add-to-cart')) {
     var _loop2 = function _loop2(_i) {
       quantityForm[_i].addEventListener('change', function () {
         var quantity = quantityForm[_i].value;
@@ -5566,6 +5566,11 @@ $(document).ready(function () {
     for (var _i = 0; _i < quantityForm.length; _i++) {
       _loop2(_i);
     }
+  } else {
+    quantityForm[0].addEventListener('change', function () {
+      var quantity = quantityForm[0].value;
+      Livewire.emit('setQuantity', quantity);
+    });
   } // let images = document.querySelectorAll('.product-detail-image .product-image');
   // for (let i = 0; i < images.length; i++) {
   //   images[i].addEventListener('click', function () {

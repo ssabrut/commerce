@@ -68,7 +68,7 @@ $(document).ready(function () {
     }
   }
 
-  if (quantityForm.length > 0) {
+  if (quantityForm.length >= 1 && !quantityForm[0].classList.contains('add-to-cart')) {
     for (let i = 0; i < quantityForm.length; i++) {
       quantityForm[i].addEventListener('change', function () {
         let quantity = quantityForm[i].value;
@@ -76,6 +76,11 @@ $(document).ready(function () {
         Livewire.emit('setQuantity', slug, quantity);
       });
     }
+  } else {
+    quantityForm[0].addEventListener('change', function () {
+      let quantity = quantityForm[0].value;
+      Livewire.emit('setQuantity', quantity);
+    });
   }
 
   // let images = document.querySelectorAll('.product-detail-image .product-image');
