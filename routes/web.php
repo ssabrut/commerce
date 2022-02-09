@@ -3,6 +3,7 @@
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\WishlistController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,6 +26,7 @@ Route::group(['middleware' => ['auth']], function () {
 
     // resource
     Route::resource('cart', CartController::class);
+    Route::resource('wishlist', WishlistController::class);
 });
 
 // Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
