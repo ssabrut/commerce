@@ -5489,7 +5489,24 @@ alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"].start();
 $(document).ready(function () {
   var isHover = function isHover(e) {
     return e.parentElement.querySelector(':hover') === e;
-  }; // banner
+  }; // header
+
+
+  var userDropdown = document.querySelector('.user-dropdown');
+  var userButton = document.querySelector('.user-button');
+  var toggle = false;
+
+  if (userButton) {
+    userButton.addEventListener('click', function () {
+      if (!toggle) {
+        userDropdown.classList.remove('hidden');
+        toggle = !toggle;
+      } else {
+        userDropdown.classList.add('hidden');
+        toggle = !toggle;
+      }
+    });
+  } // banner
 
 
   $('.banner-wrapper').slick({
@@ -5552,25 +5569,27 @@ $(document).ready(function () {
     }
   }
 
-  if (quantityForm.length >= 1 && !quantityForm[0].classList.contains('add-to-cart')) {
-    var _loop2 = function _loop2(_i) {
-      quantityForm[_i].addEventListener('change', function () {
-        var quantity = quantityForm[_i].value;
+  if (quantityForm.length > 0) {
+    if (quantityForm.length >= 1 && !quantityForm[0].classList.contains('add-to-cart')) {
+      var _loop2 = function _loop2(_i) {
+        quantityForm[_i].addEventListener('change', function () {
+          var quantity = quantityForm[_i].value;
 
-        var slug = quantityForm[_i].getAttribute('data-slug');
+          var slug = quantityForm[_i].getAttribute('data-slug');
 
-        Livewire.emit('setQuantity', slug, quantity);
+          Livewire.emit('setQuantity', slug, quantity);
+        });
+      };
+
+      for (var _i = 0; _i < quantityForm.length; _i++) {
+        _loop2(_i);
+      }
+    } else {
+      quantityForm[0].addEventListener('change', function () {
+        var quantity = quantityForm[0].value;
+        Livewire.emit('setQuantity', quantity);
       });
-    };
-
-    for (var _i = 0; _i < quantityForm.length; _i++) {
-      _loop2(_i);
     }
-  } else {
-    quantityForm[0].addEventListener('change', function () {
-      var quantity = quantityForm[0].value;
-      Livewire.emit('setQuantity', quantity);
-    });
   } // let images = document.querySelectorAll('.product-detail-image .product-image');
   // for (let i = 0; i < images.length; i++) {
   //   images[i].addEventListener('click', function () {

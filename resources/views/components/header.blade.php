@@ -1,3 +1,21 @@
+<!-- user dropdown -->
+<div
+  class="hidden origin-top-right absolute top-[120px] right-60 w-56 rounded-b-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none user-dropdown"
+  role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+  <div class="py-1" role="none">
+    <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
+    <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-0">Account
+      settings</a>
+    <a href="{{ route('wishlist.index') }}" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1"
+      id="menu-item-1">Wishlist</a>
+    <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-2">License</a>
+    <form method="POST" action="#" role="none">
+      <button type="submit" class="text-gray-700 block w-full text-left px-4 py-2 text-sm" role="menuitem" tabindex="-1"
+        id="menu-item-3">Sign out</button>
+    </form>
+  </div>
+</div>
+
 <header class="bg-white h-20 shadow z-10 grid place-items-center">
   <div class="container 2xl:mx-auto">
     <div class="flex items-center">
@@ -30,7 +48,7 @@
 
         <!-- user icon -->
         <div class="mr-8 grid place-items-center">
-          <button class="w-12 h-12 rounded-full overflow-hidden">
+          <button class="w-12 h-12 rounded-full overflow-hidden user-button" type="button">
             <img class="object-cover w-12 h-12"
               src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cmFuZG9tJTIwcGVyc29ufGVufDB8fDB8fA%3D%3D&w=1000&q=80" />
           </button>
