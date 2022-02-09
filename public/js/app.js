@@ -5489,7 +5489,17 @@ alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"].start();
 $(document).ready(function () {
   var isHover = function isHover(e) {
     return e.parentElement.querySelector(':hover') === e;
-  }; // banner
+  }; // header
+
+
+  var searchBar = document.querySelector('.search-bar');
+
+  if (searchBar) {
+    searchBar.addEventListener('input', function () {
+      var query = this.value;
+      Livewire.emit('setQuery', query);
+    });
+  } // banner
 
 
   $('.banner-wrapper').slick({

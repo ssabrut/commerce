@@ -864,6 +864,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 100%;
 }.h-96{
   height: 24rem;
+}.h-fit{
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}.h-\[20px\]{
+  height: 20px;
 }.min-h-screen{
   min-height: 100vh;
 }.w-5{

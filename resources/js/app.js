@@ -12,6 +12,15 @@ Alpine.start();
 $(document).ready(function () {
   const isHover = e => e.parentElement.querySelector(':hover') === e;
 
+  // header
+  let searchBar = document.querySelector('.search-bar');
+  if (searchBar) {
+    searchBar.addEventListener('input', function () {
+      let query = this.value;
+      Livewire.emit('setQuery', query);
+    });
+  }
+
   // banner
   $('.banner-wrapper').slick({
     slidesToShow: 1,
