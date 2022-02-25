@@ -5495,9 +5495,12 @@ $(document).ready(function () {
   var searchBar = document.querySelector('.search-bar');
 
   if (searchBar) {
-    searchBar.addEventListener('input', function () {
+    searchBar.addEventListener('keyup', function () {
       var query = this.value;
       Livewire.emit('setQuery', query);
+    });
+    searchBar.addEventListener('click', function () {
+      document.querySelector('.product-dropdown').classList.remove('hidden');
     });
   } // banner
 

@@ -20,14 +20,11 @@ class Header extends Component {
     }
 
     public function render() {
+        $this->results = Product::where('name', 'LIKE', '%' . $this->query . '%')->get();
         return view('livewire.header');
     }
 
     public function setQuery($query) {
         $this->query = $query;
-    }
-
-    public function search() {
-        $this->results = Product::where('name', 'LIKE', '%' . $this->query . '%')->get();
     }
 }
