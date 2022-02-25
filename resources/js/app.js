@@ -15,9 +15,13 @@ $(document).ready(function () {
   // header
   let searchBar = document.querySelector('.search-bar');
   if (searchBar) {
-    searchBar.addEventListener('input', function () {
+    searchBar.addEventListener('keyup', function () {
       let query = this.value;
       Livewire.emit('setQuery', query);
+    });
+
+    searchBar.addEventListener('click', function () {
+      document.querySelector('.product-dropdown').classList.remove('hidden');
     });
   }
 
